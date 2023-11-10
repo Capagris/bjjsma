@@ -8,14 +8,51 @@
         <link type="text/css" rel="stylesheet" href="css/base.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
         <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
     </head>
     <body>
-        <main class="main">
+        <script>
+            // Function to run after the DOM is fully loaded
+            function ready(callbackFunc) {
+                if (document.readyState !== "loading") {
+                    // Document is already ready, call the callback function
+                    callbackFunc();
+                } else {
+                    // Document is not ready yet, wait for the DOMContentLoaded event
+                    document.addEventListener("DOMContentLoaded", callbackFunc);
+                }
+            }
+
+            ready(function () {
+                // Listen for a click on the link
+                document.getElementById("scroll-link").addEventListener("click", function (event) {
+                    // Prevent the default link behavior
+                    event.preventDefault();
+
+                    // Get the target element
+                    var targetId = this.getAttribute("href");
+                    var targetElement = document.querySelector(targetId);
+
+                    // Scroll to the target element
+                    targetElement.scrollIntoView({
+                        behavior: "smooth",
+                    });
+                });
+                // Select the element with class .intro
+                var introElement = document.querySelector(".intro");
+
+                // Calculate the height
+                var height = introElement.offsetHeight;
+
+                // Set the height via inline styles
+                introElement.style.height = height + "px";
+            });
+        </script>
+        <nav class="nav">
             <div class="wrapper">
                 <div class="logo">
                     <svg x="0px" y="0px" viewBox="0 0 414.1 398">
@@ -1110,21 +1147,47 @@
                         </g>
                     </svg>
                 </div>
-                <h1>Clases de Jiu Jitsu Brasileño (BJJ) en San Miguel de Allende</h1>
+            </div>
+        </nav>
+        <main class="main">
+            <div class="wrapper">
+                <div class="intro">
+                    <div class="info">
+                        <h2>
+                            Academia<br />
+                            Lambda<br />
+                            Jiu Jitsu
+                        </h2>
+                        <h1>Jiu Jitsu Brasileño en SMA, Guanajuato</h1>
 
-                <p>El Jiu-Jitsu brasileño (BJJ) es un arte marcial célebre por su énfasis en la técnica y la estrategia sobre la fuerza bruta, lo que lo convierte en una disciplina accesible y profunda para todos los tipos de cuerpo y edades. BJJ fomenta un profundo sentido de resiliencia, ya que los practicantes aprenden a defenderse desde varias posiciones, particularmente desde el suelo, promoviendo la virtud de la calma bajo presión.</p>
+                        <p>La Academia Lambda Jiu Jitsu ofrece clases de BJJ en modalidad gi y no-gi en San Miguel de Allende Guanajuato a adultos y niños.</p>
 
-                <section id="class-times">
-                    <h2>Profesor Juan Manuel Vargas</h2>
+                        <button href="#target-element" id="scroll-link">Más Información</button>
+                    </div>
+                    <div class="img">
+                        <img src="imgs/bg3.png" />
+                    </div>
+                </div>
+
+                <section class="additional-info" id="target-element">
+                    <h2>Jiu Jitsu Brasileño (BJJ)</h2>
+                    <p>El Jiu-Jitsu brasileño (BJJ) es un arte marcial célebre por su énfasis en la técnica y la estrategia sobre la fuerza bruta, lo que lo convierte en una disciplina accesible y profunda para todos los tipos de cuerpo y edades. BJJ fomenta un profundo sentido de resiliencia, ya que los practicantes aprenden a defenderse desde varias posiciones, particularmente desde el suelo, promoviendo la virtud de la calma bajo presión.</p>
+                    <h2>Profesor</h2>
+                    <p>Juan Manuel Vargas</p>
                     <p><a href="tel:+52 1 415 140 5257">+52 1 415 140 5257</a></p>
                     <h2>Ubicación</h2>
-                    <p>Salón Loto, Mercado Sano, Ancha de San Antonio #123, San Antonio, 37750 San Miguel de Allende, Gto.</p>
+                    <p>
+                        Salón Loto, Mercado Sano,<br />
+                        Ancha de San Antonio #123,<br />
+                        Col. San Antonio,<br />
+                        37750 San Miguel de Allende, Gto.
+                    </p>
                     <p><a href="https://www.google.com/search?q=mercado+sano+sma&oq=mercado+sano+sma&gs_lcrp=EgZjaHJvbWUqCggAEAAY4wIYgAQyCggAEAAY4wIYgAQyEAgBEC4YrwEYxwEYgAQYjgUyBggCEEUYOdIBCDY1NDZqMGoxqAIAsAIA&sourceid=chrome&ie=UTF-8">Google Maps</a></p>
                     <h2>Horarios</h2>
                     <ul>
                         <li>
                             Lunes y Miércoles 5:15 - 6:45 PM<br />
-                            Sábados 08:00 - 10:00 AM
+                            Sábados 8:00 - 10:00 AM
                         </li>
                         <!-- <li>Niños: ???, 6:00 PM - 7:30 PM</li> -->
                     </ul>
